@@ -36,3 +36,26 @@ export const getDetailArticle = async (id: string): Promise<Article> => {
 
   return articles;
 };
+
+export const createArticle = async (
+  id: string,
+  title: string,
+  content: string,
+): Promise<Article> => {
+  const currentDateTime = new Date().toISOString();
+  const res = await fetch(`http://localhost:3001/posts`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ id, title, content, currentDateTime }),
+  });
+
+ 
+
+  if (!res.ok) throw new Error('エラーが発生しました');
+
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+
+  const newArticles = await res.json();
+
+  return newArticles;
+};
