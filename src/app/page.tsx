@@ -1,12 +1,14 @@
+import { getAllArticles } from '@/blogAPI';
+
 import { ArticleList } from './components/ArticleList';
 
-// import { getAllArticles } from "@/pages/api/blogAPI";
-
 export default async function Home() {
+  const articles = await getAllArticles();
+
   return (
     <div className="md:flex">
       <section className="w-full md:w-2/3 flex flex-col items-center px-3">
-        <ArticleList />
+        <ArticleList articles={articles} />
       </section>
 
       <aside className="w-full md:w-1/3 flex flex-col items-center px-3 md:pl-6">
