@@ -1,6 +1,9 @@
+import { Suspense } from 'react';
+
 import Footer from './Footer';
 import './globals.css';
 import Header from './Header';
+import Loading from './loading';
 
 import type { Metadata } from 'next';
 
@@ -17,9 +20,8 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className="container mx-auto bg-slate-700 text-slate-50">
-        {' '}
         <Header />
-        {children}
+        <Suspense fallback={<Loading />}>{children}</Suspense>
         <Footer />
       </body>
     </html>
