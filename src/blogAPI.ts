@@ -49,8 +49,6 @@ export const createArticle = async (
     body: JSON.stringify({ id, title, content, currentDateTime }),
   });
 
- 
-
   if (!res.ok) throw new Error('エラーが発生しました');
 
   await new Promise((resolve) => setTimeout(resolve, 1000));
