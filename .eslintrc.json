@@ -28,9 +28,19 @@
         "alphabetize": {
           "order": "asc",
           "caseInsensitive": true
-        }
+        },
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "external",
+            "position": "before"
+          }
+          // 他の外部モジュールを追加する場合、ここに追加します
+        ],
+        "pathGroupsExcludedImportTypes": ["builtin"]
       }
     ]
   },
-  "extends": ["plugin:import/recommended", "next/core-web-vitals", "prettier"]
+  "extends": ["plugin:import/recommended", "next/core-web-vitals", "prettier"],
+  "plugins": ["import"]
 }
