@@ -1,20 +1,20 @@
-import { NextApiRequest, NextApiResponse } from 'next';
-import { notFound } from 'next/navigation';
+// import { NextApiRequest, NextApiResponse } from 'next';
+// import { notFound } from 'next/navigation';
 
-import { supabase } from '@/utils/supabaseClient';
+// import { supabase } from '@/utils/supabaseClient';
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse,
-) {
-  const { id, title, content } = req.body;
-  const { data, error } = await supabase
-    .from('posts')
-    .insert([{ id, title, content, createdAt: new Date().toISOString() }]);
+// export default async function handler(
+//   req: NextApiRequest,
+//   res: NextApiResponse,
+// ) {
+//   const { id, title, content } = req.body;
+//   const { data, error } = await supabase
+//     .from('posts')
+//     .insert([{ id, title, content, createdAt: new Date().toISOString() }]);
 
-  if (error) {
-    return res.status(500).json({ error: error.message });
-  }
+//   if (error) {
+//     return res.status(500).json({ error: error.message });
+//   }
 
-  return res.status(200).json(data);
-}
+//   return res.status(200).json(data);
+// }

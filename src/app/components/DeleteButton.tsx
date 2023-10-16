@@ -15,7 +15,7 @@ const DeleteButton = ({ id }: DeleteButtonProps) => {
 
     const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
-    await fetch(`${API_URL}/api/${id}`, { method: 'DELETE' });
+    await fetch(`${API_URL}/api/blog/${id}`, { method: 'DELETE' });
 
     router.push('/');
     router.refresh();
