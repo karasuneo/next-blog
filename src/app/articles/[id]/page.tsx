@@ -4,9 +4,15 @@ import DeleteButton from '@/app/components/DeleteButton';
 import { getDetailArticle } from '@/blogAPI';
 
 const Article = async ({ params }: { params: { id: string } }) => {
-  const detailArticle = await getDetailArticle(params.id);
-  const handleDelete = async () => {};
+  // const detailArticle = await getDetailArticle(params.id);
 
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
+  const res = await fetch(`${API_URL}/api/${params.id}`, {
+    next: { revalidate: 10 },
+  });
+
+  const detailArticle = await res.json();
   return (
     <div className="max-w-3xl mx-auto p-5">
       <Image
